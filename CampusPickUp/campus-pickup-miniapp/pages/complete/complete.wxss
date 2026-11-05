@@ -1,0 +1,88 @@
+.form-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx 30rpx;
+  margin-top: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+  margin-bottom: 36rpx;
+  padding-bottom: 24rpx;
+  border-bottom: 1rpx solid #f0f2f5;
+}
+
+.form-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.form-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #a0a6ad;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  margin-bottom: 14rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.input {
+  width: 100%;
+  height: 84rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: #f5f7fa;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+picker {
+  display: block;
+  width: 100%;
+}
+
+.picker-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: #f5f7fa;
+  border-radius: 14rpx;
+}
+
+.picker-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.picker-text.placeholder {
+  color: #b0b7c3;
+}
+
+.picker-arrow {
+  color: #c0c4cc;
+  font-size: 34rpx;
+  margin-left: 12rpx;
+}
+
+.submit-btn {
+  margin-top: 40rpx;
+}

@@ -1,0 +1,47 @@
+# ============================================================
+# 项目主配置文件
+# 通过 spring.profiles.active: druid 激活并引用 application-druid.yml
+# 中的真实数据源配置（数据库连接信息写在 application-druid.yml）
+# ============================================================
+spring:
+  # 激活 druid 配置，引用 application-druid.yml
+  profiles:
+    active: druid
+  # Redis 配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 357259
+    database: 0
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# MyBatis 配置
+mybatis:
+  # 搜索指定包别名
+  type-aliases-package: com.campus.pickup.system.domain
+  # 配置 mapper 的扫描位置
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    # 开启驼峰命名自动映射
+    map-underscore-to-camel-case: true
+    # 打印 SQL（开发期建议开启）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# PageHelper 分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
+# 阿里云 OSS 真实配置已移到 application-druid.yml（通过 spring.profiles.active: druid 引用）

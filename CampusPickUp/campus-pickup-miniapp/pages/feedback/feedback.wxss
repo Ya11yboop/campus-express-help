@@ -1,0 +1,83 @@
+.container {
+  padding: 30rpx;
+}
+
+.tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.tab.active {
+  color: #409eff;
+  font-weight: bold;
+  border-bottom: 4rpx solid #409eff;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  color: #409eff;
+  font-size: 26rpx;
+}
+
+.status {
+  color: #f56c6c;
+  font-size: 26rpx;
+}
+
+.score {
+  color: #e6a23c;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.content {
+  display: block;
+  margin-top: 16rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.time {
+  display: block;
+  margin-top: 12rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.result {
+  display: block;
+  margin-top: 12rpx;
+  color: #67c23a;
+  font-size: 26rpx;
+}
+
+.empty {
+  color: #ccc;
+  text-align: center;
+  padding: 60rpx 0;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.campus</groupId>
+        <artifactId>campus-pickup</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>pickup-system</artifactId>
+    <name>pickup-system</name>
+    <description>系统业务模块：实体、Mapper、Service、Controller</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.campus</groupId>
+            <artifactId>pickup-common</artifactId>
+            <version>${campus-pickup.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.campus</groupId>
+            <artifactId>pickup-framework</artifactId>
+            <version>${campus-pickup.version}</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 用户信息头部 -->
+  <view class="profile-card" wx:if="{{user}}">
+    <view class="deco deco1"></view>
+    <view class="deco deco2"></view>
+    <view class="avatar">{{initial}}</view>
+    <view class="profile-main">
+      <text class="name">{{user.realName || user.nickName || user.userName}}</text>
+      <text class="role">{{user.userType === 'courier' ? '跑腿人员' : '在校学生'}}</text>
+      <text wx:if="{{schoolName}}" class="school-chip">{{schoolName}}</text>
+    </view>
+    <view class="credit-badge">
+      <text class="credit-num">{{user.creditScore}}</text>
+      <text class="credit-label">信誉分</text>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-card" wx:if="{{user}}">
+    <view class="menu-item" bindtap="goMyOrders">
+      <text class="menu-label">我的订单</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goAddress">
+      <text class="menu-label">地址管理</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goFeedback">
+      <text class="menu-label">投诉与评价</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goNotification">
+      <text class="menu-label">我的通知</text>
+      <text wx:if="{{unreadCount > 0}}" class="menu-badge">{{unreadCount}}</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 信息明细 -->
+  <view class="info-card" wx:if="{{user}}">
+    <view class="info-row">
+      <text class="info-label">学校</text>
+      <text class="info-value">{{schoolName || user.school || '-'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">学号</text>
+      <text class="info-value">{{user.studentNo || '-'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">手机号</text>
+      <text class="info-value">{{user.phone || '-'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">身份证</text>
+      <text class="info-value">{{user.idCard || '-'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">信誉分</text>
+      <text class="info-value credit">{{user.creditScore}}</text>
+    </view>
+  </view>
+
+  <button class="logout-btn" wx:if="{{user}}" bindtap="handleLogout">退出登录</button>
+
+  <!-- 未登录 -->
+  <block wx:else>
+    <view class="profile-card">
+      <view class="avatar avatar-empty">?</view>
+      <view class="profile-main">
+        <text class="name">未登录</text>
+        <text class="role">登录后查看个人信息</text>
+      </view>
+    </view>
+    <button class="login-btn" type="primary" bindtap="goLogin">去登录</button>
+  </block>
+</view>

@@ -1,0 +1,36 @@
+<view class="page">
+  <!-- 顶部品牌区 -->
+  <view class="hero">
+    <view class="deco deco-1"></view>
+    <view class="deco deco-2"></view>
+    <view class="brand-icon">📦</view>
+    <view class="brand-title">校园快递配送系统</view>
+    <view class="brand-sub">便捷 · 高效 · 安全</view>
+  </view>
+
+  <!-- 登录卡片 -->
+  <view class="login-card">
+    <view class="card-title">欢迎登录</view>
+    <view class="card-sub">使用账号密码或微信登录</view>
+
+    <view class="input-wrap">
+      <text class="input-icon">👤</text>
+      <input class="input" placeholder="请输入账号" value="{{username}}" bindinput="onUsername" placeholder-class="ph" />
+    </view>
+
+    <view class="input-wrap">
+      <text class="input-icon">🔒</text>
+      <input class="input" password placeholder="请输入密码" value="{{password}}" bindinput="onPassword" placeholder-class="ph" />
+    </view>
+
+    <button class="login-btn" hover-class="hover" bindtap="handleLogin" loading="{{loading}}">登 录</button>
+
+    <view class="divider">
+      <view class="line"></view>
+      <text class="divider-text">其他登录方式</text>
+      <view class="line"></view>
+    </view>
+
+    <button class="wechat-btn" hover-class="hover" bindtap="wechatLogin" loading="{{wechatLoading}}">微信一键登录</button>
+  </view>
+</view>

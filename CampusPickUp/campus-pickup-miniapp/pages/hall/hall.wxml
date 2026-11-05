@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- 搜索区 -->
+  <view class="search-box">
+    <view class="search-title"><text class="search-icon">🔍</text>筛选订单</view>
+    <view class="search-row">
+      <view class="search-field">
+        <text class="field-label">费用</text>
+        <input class="search-input" type="digit" placeholder="最低" value="{{feeMin}}" bindinput="onFeeMin" />
+        <text class="sep">-</text>
+        <input class="search-input" type="digit" placeholder="最高" value="{{feeMax}}" bindinput="onFeeMax" />
+      </view>
+    </view>
+    <view class="search-row">
+      <view class="search-field">
+        <text class="field-label">驿站</text>
+        <picker class="search-picker" range="{{points}}" range-key="pointName" bindchange="onSelectPoint">
+          <view class="picker-value">{{selectedPointName || '全部驿站'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="search-row">
+      <view class="search-field">
+        <text class="field-label">地址</text>
+        <input class="search-input" placeholder="收货地址关键词" value="{{deliveryAddress}}" bindinput="onDelivery" />
+      </view>
+    </view>
+    <view class="search-btns">
+      <button class="btn-reset" bindtap="resetSearch">重置</button>
+      <button class="btn-search" type="primary" bindtap="handleSearch">搜索</button>
+    </view>
+  </view>
+
+  <view class="order-card" wx:for="{{list}}" wx:key="orderId" bindtap="goDetail" data-id="{{item.orderId}}">
+    <view class="row">
+      <text class="tag">{{item.typeText}}</text>
+      <text class="no">{{item.orderNo}}</text>
+    </view>
+    <text class="info"><text class="info-icon">📦</text>快递：{{item.trackingNo || '无'}}</text>
+    <text class="info"><text class="info-icon">🏪</text>取件：{{item.pickupAddress || '驿站'}}</text>
+    <text class="info"><text class="info-icon">📍</text>送达：{{item.deliveryAddress || '-'}}</text>
+    <view class="row bottom">
+      <text class="fee">¥{{item.fee}}</text>
+      <text class="status">{{item.statusText}}</text>
+    </view>
+  </view>
+  <view wx:if="{{list.length === 0}}" class="empty">暂无待接单的订单</view>
+</view>

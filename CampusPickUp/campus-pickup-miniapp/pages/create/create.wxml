@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-header">
+      <text class="form-title">填写订单信息</text>
+      <text class="form-sub">选择驿站与地址，即可下单</text>
+    </view>
+
+    <view class="section-label">订单信息</view>
+    <view class="form-item">
+      <text class="label">订单类型</text>
+      <view class="type-tag">{{type === '1' ? '帮取快递' : '帮寄快递'}}</view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">快递单号</text>
+      <input class="input" placeholder="请输入快递单号" value="{{form.trackingNo}}" data-field="trackingNo" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">快递公司</text>
+      <input class="input" placeholder="如 顺丰速运" value="{{form.expressCompany}}" data-field="expressCompany" bindinput="onInput" />
+    </view>
+
+    <view class="section-label">取件与配送</view>
+    <view class="form-item">
+      <text class="label"><text class="req">*</text>取件驿站</text>
+      <picker range="{{points}}" range-key="pointName" bindchange="onSelectPoint">
+        <view class="picker-box">
+          <text class="picker-text {{selectedPointName ? '' : 'placeholder'}}">{{selectedPointName || '请选择驿站'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">大小分类</text>
+      <picker range="{{sizes}}" range-key="sizeName" bindchange="onSelectSize">
+        <view class="picker-box">
+          <text class="picker-text {{selectedSizeName ? '' : 'placeholder'}}">{{selectedSizeName || '请选择大小'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label"><text class="req">*</text>送达地址</text>
+      <picker range="{{addresses}}" range-key="address" bindchange="onSelectAddress">
+        <view class="picker-box">
+          <text class="picker-text {{selectedAddressText ? '' : 'placeholder'}}">{{selectedAddressText || '请选择地址'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="addr-tip" bindtap="goAddress">管理收货地址 ›</view>
+
+    <view class="form-item">
+      <text class="label">收件人</text>
+      <view class="value-box">{{form.receiverName || '-'}}</view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">联系电话</text>
+      <view class="value-box">{{form.receiverPhone || '-'}}</view>
+    </view>
+
+    <view class="section-label">费用</view>
+    <view class="form-item">
+      <text class="label"><text class="req">*</text>配送费</text>
+      <view class="fee-wrap">
+        <text class="fee-symbol">¥</text>
+        <input class="input fee-input" type="digit" placeholder="0.00" value="{{form.fee}}" data-field="fee" bindinput="onInput" />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">备注</text>
+      <input class="input" placeholder="备注" value="{{form.remark}}" data-field="remark" bindinput="onInput" />
+    </view>
+
+  </view>
+
+  <!-- 底部提交栏 -->
+  <view class="submit-bar">
+    <view class="bar-fee">
+      <text class="bar-fee-label">配送费</text>
+      <text class="bar-fee-value">¥{{form.fee || '0.00'}}</text>
+    </view>
+    <button class="submit-btn" type="primary" disabled="{{!form.deliveryAddress}}" bindtap="submit">提交订单</button>
+  </view>
+</view>

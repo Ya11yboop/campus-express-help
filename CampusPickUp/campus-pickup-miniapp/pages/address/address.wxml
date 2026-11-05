@@ -1,0 +1,48 @@
+<view class="container">
+  <view
+    class="addr-card {{selectedId === item.addressId ? 'selected' : ''}}"
+    wx:for="{{list}}"
+    wx:key="addressId"
+    bindtap="selectAddr"
+    data-id="{{item.addressId}}"
+  >
+    <view class="addr-top">
+      <text class="addr-name">{{item.contactName}}</text>
+      <text class="addr-phone">{{item.contactPhone}}</text>
+      <text wx:if="{{item.isDefault === '1'}}" class="addr-default">默认</text>
+      <text wx:if="{{selectedId === item.addressId}}" class="addr-selected">使用中</text>
+    </view>
+    <text class="addr-detail">{{item.address}}</text>
+    <view class="addr-actions">
+      <text wx:if="{{item.isDefault !== '1'}}" class="action" catchtap="setDefault" data-id="{{item.addressId}}">设为默认</text>
+      <text class="action" catchtap="editAddr" data-id="{{item.addressId}}">编辑</text>
+      <text class="action danger" catchtap="delAddr" data-id="{{item.addressId}}">删除</text>
+    </view>
+  </view>
+
+  <view wx:if="{{list.length === 0}}" class="empty">暂无收货地址</view>
+
+  <button class="add-btn" type="primary" bindtap="openForm">新增地址</button>
+
+  <!-- 新增/编辑弹层 -->
+  <view class="mask" wx:if="{{showForm}}" bindtap="closeForm"></view>
+  <view class="form-panel" wx:if="{{showForm}}">
+    <view class="form-title">{{form.addressId ? '编辑地址' : '新增地址'}}</view>
+    <view class="form-item">
+      <text class="label">联系人</text>
+      <input class="input" value="{{form.contactName}}" data-field="contactName" bindinput="onInput" placeholder="联系人姓名" />
+    </view>
+    <view class="form-item">
+      <text class="label">电话</text>
+      <input class="input" type="number" value="{{form.contactPhone}}" data-field="contactPhone" bindinput="onInput" placeholder="联系电话" />
+    </view>
+    <view class="form-item">
+      <text class="label">地址</text>
+      <textarea class="textarea" value="{{form.address}}" data-field="address" bindinput="onInput" placeholder="详细地址，如 东区1号楼302" />
+    </view>
+    <view class="form-btns">
+      <button class="btn-cancel" bindtap="closeForm">取消</button>
+      <button class="btn-save" type="primary" bindtap="saveAddr">保存</button>
+    </view>
+  </view>
+</view>

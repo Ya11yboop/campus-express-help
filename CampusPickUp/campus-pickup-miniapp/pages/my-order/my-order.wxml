@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{tab === 'my' ? 'active' : ''}}" bindtap="switchTab" data-tab="my">我下的单</view>
+    <view class="tab {{tab === 'accepted' ? 'active' : ''}}" bindtap="switchTab" data-tab="accepted">我接的单</view>
+  </view>
+
+  <block wx:if="{{tab === 'my'}}">
+    <view class="order-card" wx:for="{{myList}}" wx:key="orderId" bindtap="goDetail" data-id="{{item.orderId}}">
+      <view class="row">
+        <text class="tag">{{item.typeText}}</text>
+        <text class="status">{{item.statusText}}</text>
+      </view>
+      <text class="info">送达：{{item.deliveryAddress || '-'}}</text>
+      <text class="info">费用：¥{{item.fee}}</text>
+    </view>
+    <view wx:if="{{myList.length === 0}}" class="empty">暂无订单</view>
+  </block>
+
+  <block wx:if="{{tab === 'accepted'}}">
+    <view class="order-card" wx:for="{{acceptedList}}" wx:key="orderId" bindtap="goDetail" data-id="{{item.orderId}}">
+      <view class="row">
+        <text class="tag">{{item.typeText}}</text>
+        <text class="status">{{item.statusText}}</text>
+      </view>
+      <text class="info">订单号：{{item.orderNo}}</text>
+      <text class="info">费用：¥{{item.fee}}</text>
+    </view>
+    <view wx:if="{{acceptedList.length === 0}}" class="empty">暂无接单</view>
+  </block>
+</view>

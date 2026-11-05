@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{tab === 'complaint' ? 'active' : ''}}" bindtap="switchTab" data-tab="complaint">我的投诉</view>
+    <view class="tab {{tab === 'evaluate' ? 'active' : ''}}" bindtap="switchTab" data-tab="evaluate">我的评价</view>
+  </view>
+
+  <block wx:if="{{tab === 'complaint'}}">
+    <view class="card" wx:for="{{complaints}}" wx:key="complaintId">
+      <view class="row">
+        <text class="tag">{{item.typeText}}</text>
+        <text class="status">{{item.statusText}}</text>
+      </view>
+      <text class="content">{{item.content}}</text>
+      <text class="time">提交时间：{{item.createTime}}</text>
+      <text wx:if="{{item.handleResult}}" class="result">处理结果：{{item.handleResult}}</text>
+    </view>
+    <view wx:if="{{complaints.length === 0}}" class="empty">暂无投诉/申诉</view>
+  </block>
+
+  <block wx:if="{{tab === 'evaluate'}}">
+    <view class="card" wx:for="{{evaluations}}" wx:key="evaluateId">
+      <view class="row">
+        <text class="score">评分：{{item.score}} 星</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      <text class="content">{{item.content}}</text>
+      <text wx:if="{{item.reply}}" class="result">客服回复：{{item.reply}}</text>
+    </view>
+    <view wx:if="{{evaluations.length === 0}}" class="empty">暂无评价</view>
+  </block>
+</view>

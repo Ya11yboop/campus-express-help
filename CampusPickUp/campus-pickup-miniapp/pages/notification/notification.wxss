@@ -1,0 +1,76 @@
+.container {
+  padding: 30rpx;
+}
+
+.notif-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.unread-card {
+  border-left: 6rpx solid #409eff;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #f56c6c;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.unread-badge {
+  background: #f56c6c;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+}
+
+.content {
+  display: block;
+  margin-top: 14rpx;
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.time {
+  display: block;
+  margin-top: 12rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.empty {
+  color: #ccc;
+  text-align: center;
+  padding: 60rpx 0;
+}

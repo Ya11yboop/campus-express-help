@@ -1,0 +1,59 @@
+<view class="container" wx:if="{{order}}">
+  <view class="detail-card">
+    <view class="row">
+      <text class="tag">{{typeText}}</text>
+      <text class="status">{{statusText}}</text>
+    </view>
+    <text class="info">订单号：{{order.orderNo}}</text>
+    <text class="info">快递单号：{{order.trackingNo || '无'}}</text>
+    <text class="info">快递公司：{{order.expressCompany || '-'}}</text>
+    <text class="info">取件地址：{{order.pickupAddress || '-'}}</text>
+    <text class="info">送达地址：{{order.deliveryAddress || '-'}}</text>
+    <text class="info">收件人：{{order.receiverName || '-'}} {{order.receiverPhone || ''}}</text>
+    <text class="info">配送费：¥{{order.fee}}</text>
+  </view>
+
+  <view class="actions">
+    <button wx:if="{{canAccept}}" type="primary" bindtap="accept">接单</button>
+    <button wx:if="{{canFinish}}" type="primary" bindtap="applyFinish">申请配送完成</button>
+    <button wx:if="{{canWithdraw}}" type="warn" bindtap="withdraw">撤回接单</button>
+    <button wx:if="{{canCancel}}" type="warn" bindtap="cancel">取消订单</button>
+    <button wx:if="{{canEvaluate}}" type="primary" bindtap="evaluate">评价</button>
+    <button bindtap="complaint">申诉/投诉</button>
+  </view>
+
+  <!-- 评价弹层 -->
+  <view class="mask" wx:if="{{showEval}}" bindtap="closeEval"></view>
+  <view class="panel" wx:if="{{showEval}}">
+    <view class="panel-title">评价订单</view>
+    <view class="stars">
+      <text
+        wx:for="{{[1,2,3,4,5]}}"
+        wx:key="*this"
+        class="star {{evalScore >= item ? 'active' : ''}}"
+        data-star="{{item}}"
+        bindtap="onStarTap"
+      >★</text>
+    </view>
+    <textarea class="panel-textarea" value="{{evalContent}}" bindinput="onEvalInput" placeholder="请输入评价内容" />
+    <view class="panel-btns">
+      <button class="btn-cancel" bindtap="closeEval">取消</button>
+      <button class="btn-confirm" type="primary" bindtap="submitEval">提交评价</button>
+    </view>
+  </view>
+
+  <!-- 投诉/申诉弹层 -->
+  <view class="mask" wx:if="{{showComplaint}}" bindtap="closeComplaint"></view>
+  <view class="panel" wx:if="{{showComplaint}}">
+    <view class="panel-title">申诉 / 投诉</view>
+    <view class="type-seg">
+      <view class="seg-item {{complaintType === '2' ? 'active' : ''}}" data-type="2" bindtap="onComplaintType">投诉</view>
+      <view class="seg-item {{complaintType === '1' ? 'active' : ''}}" data-type="1" bindtap="onComplaintType">申诉</view>
+    </view>
+    <textarea class="panel-textarea" value="{{complaintContent}}" bindinput="onComplaintInput" placeholder="请输入投诉/申诉内容" />
+    <view class="panel-btns">
+      <button class="btn-cancel" bindtap="closeComplaint">取消</button>
+      <button class="btn-confirm" type="primary" bindtap="submitComplaint">提交</button>
+    </view>
+  </view>
+</view>

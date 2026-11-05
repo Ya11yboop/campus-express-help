@@ -1,0 +1,66 @@
+page {
+  background: #f0f4f8;
+  font-size: 28rpx;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+button {
+  margin-top: 20rpx;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+/* 去掉微信 button 默认边框 */
+button::after {
+  border: none;
+}
+
+/* 主按钮：蓝色渐变，贴合苍穹外卖主题 */
+button[type='primary'] {
+  background: linear-gradient(135deg, #409eff, #2b6cb0);
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgba(64, 158, 255, 0.28);
+}
+
+button[type='warn'] {
+  background: linear-gradient(135deg, #f56c6c, #e04545);
+  color: #fff;
+  border-radius: 44rpx;
+  box-shadow: 0 8rpx 20rpx rgba(245, 108, 108, 0.28);
+}
+
+/* 通用卡片 */
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 通用空状态 */
+.empty {
+  color: #b0b7c3;
+  text-align: center;
+  padding: 60rpx 0;
+  font-size: 28rpx;
+}
+
+/* 通用标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+/* 通用输入框 */
+input,
+textarea {
+  font-size: 28rpx;
+}

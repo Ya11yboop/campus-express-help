@@ -1,0 +1,13 @@
+com\campus\pickup\framework\config\WebSocketConfig.class
+com\campus\pickup\framework\context\UserContext.class
+com\campus\pickup\framework\jwt\LoginUser.class
+com\campus\pickup\framework\annotation\RequiresRole.class
+com\campus\pickup\framework\redis\RedisCacheUtil.class
+com\campus\pickup\framework\config\WebConfig.class
+com\campus\pickup\framework\redis\CacheConstants.class
+com\campus\pickup\framework\config\OssConfig.class
+com\campus\pickup\framework\websocket\NotifyWebSocketHandler.class
+com\campus\pickup\framework\oss\OssService.class
+com\campus\pickup\framework\interceptor\JwtInterceptor.class
+com\campus\pickup\framework\jwt\TokenService.class
+com\campus\pickup\framework\jwt\JwtUtil.class

@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-header">
+      <text class="form-title">完善个人信息</text>
+      <text class="form-sub">首次微信登录后需填写以下信息</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">用户名</text>
+      <input class="input" placeholder="请设置登录用户名" value="{{form.userName}}" data-field="userName" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">密码</text>
+      <input class="input" password placeholder="请设置登录密码" value="{{form.password}}" data-field="password" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input class="input" placeholder="请输入真实姓名" value="{{form.realName}}" data-field="realName" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">电话</text>
+      <input class="input" type="number" placeholder="请输入联系电话" value="{{form.phone}}" data-field="phone" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">学校</text>
+      <picker mode="selector" range="{{schools}}" range-key="schoolName" value="{{schoolIndex}}" bindchange="onSelectSchool">
+        <view class="picker-box">
+          <text class="picker-text {{form.schoolId ? '' : 'placeholder'}}">{{form.schoolId ? (schools[schoolIndex].schoolName || '已选择') : '请选择学校'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">学号</text>
+      <input class="input" placeholder="请输入学号" value="{{form.studentNo}}" data-field="studentNo" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">身份证</text>
+      <input class="input" placeholder="请输入身份证号" value="{{form.idCard}}" data-field="idCard" bindinput="onInput" />
+    </view>
+
+    <button class="submit-btn" type="primary" bindtap="submit">提交并完善</button>
+  </view>
+</view>

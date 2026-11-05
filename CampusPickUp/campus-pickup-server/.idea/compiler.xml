@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pickup-framework" />
+        <module name="pickup-common" />
+        <module name="pickup-system" />
+        <module name="pickup-admin" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="24" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pickup-admin" options="-parameters" />
+      <module name="pickup-common" options="-parameters" />
+      <module name="pickup-framework" options="-parameters" />
+      <module name="pickup-system" options="-parameters" />
+    </option>
+  </component>
+</project>

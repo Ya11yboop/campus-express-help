@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="notif-card {{item.readStatus === '0' ? 'unread-card' : ''}}" wx:for="{{list}}" wx:key="notifId" bindtap="markRead" data-id="{{item.notifId}}">
+    <view class="row">
+      <view class="title-wrap">
+        <view wx:if="{{item.readStatus === '0'}}" class="dot"></view>
+        <text class="title">{{item.title}}</text>
+      </view>
+      <text wx:if="{{item.readStatus === '0'}}" class="unread-badge">未读</text>
+    </view>
+    <text class="content">{{item.content}}</text>
+    <text class="time">{{item.createTime}}</text>
+  </view>
+  <view wx:if="{{list.length === 0}}" class="empty">暂无通知</view>
+</view>
