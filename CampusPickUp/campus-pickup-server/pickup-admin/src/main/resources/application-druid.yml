@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/campus_pickup?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    password: 357259
+    password: 你的数据库密码
     druid:
       # 初始连接数
       initial-size: 5
@@ -37,11 +37,11 @@ aliyun:
   oss:
     # 地域节点（注意：不带 https:// 前缀）
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5tG6HCAcBkUZekzbgC4w
-    access-key-secret: Rs2qxKpmUgQcztocNB0f166JzzzWNz
-    bucket-name: xiaoyuanbang-parcel
+    access-key-id: 你的access-key-id
+    access-key-secret: 你的access-key-secret
+    bucket-name: 你的bucket-name
     # 访问域名（用于拼接上传后的文件 URL）
-    domain: https://xiaoyuanbang-parcel.oss-cn-beijing.aliyuncs.com
+    domain: 你的domain
     region: cn-beijing
 
 # ============================================================
@@ -49,6 +49,6 @@ aliyun:
 # ============================================================
 wechat:
   # 小程序 AppID（与 campus-pickup-miniapp/project.config.json 一致）
-  appid: wx8f1920aa078907b2
+  appid: 你的appid
   # 小程序 AppSecret（用于 code2session）
-  secret: 6af494bec57e74a68dea44ace1150ed9
+  secret: 你的secret
